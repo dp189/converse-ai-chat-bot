@@ -77,7 +77,7 @@ const DashBoard = () => {
   return (
     <div className="dashboard">
       <div className="imgContainer">
-        <div className="logo">
+        <div className="logo-dashboard">
           <img src="./logo.png" alt="" />
           <h1>ConverS AI</h1>
         </div>

@@ -44,3 +44,14 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .chatpage{
+        .wrapper{
+        .chat{
+            width:70%;
+            word-wrap: break-word;
+        }
+    }
+}
+}

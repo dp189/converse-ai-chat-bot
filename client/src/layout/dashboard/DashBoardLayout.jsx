@@ -1,6 +1,6 @@
 import { useAuth } from '@clerk/clerk-react';
 import React, {useEffect} from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useOutletContext } from 'react-router-dom';
 import ChatList from '../../components/chatlist/ChatList';
 
 import "./dashBoardLayout.css";
@@ -10,6 +10,7 @@ const DashBoardLayout = () => {
 
   const {userId, isLoaded} = useAuth()
   const navigate = useNavigate();
+  const { isSidebarOpen, toggleSidebar } = useOutletContext();
 
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const DashBoardLayout = () => {
 
   return (
     <div className="dashboardLayout">
-      <div className="menu">
+      <div className={`menu ${isSidebarOpen ? 'open' : ''}`}>
         <ChatList />
       </div>
       <div className="content">

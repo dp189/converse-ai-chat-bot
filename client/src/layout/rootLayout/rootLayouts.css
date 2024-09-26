@@ -1,5 +1,5 @@
 .root-layout {
-    padding: 16px 64px;
+    padding: 16px 60px 16px 50px;
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -9,6 +9,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
+
+      
   
       .logo {
         display: flex;
@@ -25,6 +28,57 @@
   
     main {
       flex: 1;
-      overflow: hidden;
+      overflow: auto;
     }
   }
+
+  .sidebar-toggle-container{
+    display: none;
+  }
+
+  .sidebar-toggle{      
+    display: none;
+    position: fixed;
+    background: none;
+    margin-right: 15px;
+    padding: 10px ;
+    color: white;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    
+  }
+
+
+  @media (max-width: 767px) {
+    .root-layout{
+      padding: 16px 16px;
+      header{
+        padding: 10px;
+      }
+      .sidebar-toggle-container{
+        display: block;
+      .sidebar-toggle {
+        display: block;
+        padding-left: 10px;
+        margin-right: 10px;
+        background-color: transparent;
+        
+    }
+  }
+    .logo > span{
+      /* margin-top: 4px; */
+      margin-left: 50px;
+      font-size: 25px;
+    }
+    }
+    
+    .logo > img{
+      display: none;
+    }
+}
