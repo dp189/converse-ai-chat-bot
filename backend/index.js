@@ -185,13 +185,13 @@ app.put("/api/chats/:id", ClerkExpressRequireAuth(), async (req, res) => {
 });
 
 
-if(process.env.NODE_ENV === "production"){
-  app.use(express.static(path.join(__dirname, "/client/dist")));
+// if(process.env.NODE_ENV === "production"){
+//   app.use(express.static(path.join(__dirname, "/client/dist")));
 
-  app.get("*", (req,res) => {
-    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
-  })
-}
+//   app.get("*", (req,res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+//   })
+// }
 
 app.listen(port, () => {
   connectDB();
