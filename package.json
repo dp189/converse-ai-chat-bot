@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon --env-file .env backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file .env backend/index.js",
     "build": "npm install && npm install --prefix client && npm build --prefix client"
   },
   "keywords": [],
