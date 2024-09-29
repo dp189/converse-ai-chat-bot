@@ -7,7 +7,7 @@ import './signIn.css';
 const SignInPage = () => {
   return (
     <div className="signPage" id="signIn" >
-      <SignIn path="/sign-in" signUpUrl="/sign-up" forceRedirectUrl={`${import.meta.env.VITE_REDIRECT_URL}/dashboard`}/>
+      <SignIn path="/sign-in" signUpUrl="/sign-up" forceRedirectUrl={`/dashboard`}/>
     </div>
   )
 }

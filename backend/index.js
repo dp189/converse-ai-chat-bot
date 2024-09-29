@@ -4,6 +4,7 @@ dotenv.config({
 });
 
 import cors from "cors";
+import path from "path";
 import express, { application } from "express";
 import ImageKit from "imagekit";
 import connectDB from "./db/db.js";
@@ -15,6 +16,9 @@ import { ApiError } from "./utils/ApiError.js";
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+
+const __dirname = path.resolve();
 
 app.use(
   cors({
@@ -179,6 +183,15 @@ app.put("/api/chats/:id", ClerkExpressRequireAuth(), async (req, res) => {
     
   }
 });
+
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, "/client/dist")));
+
+  app.get("*", (req,res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  })
+}
 
 app.listen(port, () => {
   connectDB();

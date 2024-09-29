@@ -4,8 +4,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --env-file .env index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --env-file .env backend/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install && npm install --prefix client && npm build --prefix client"
   },
   "keywords": [],
   "author": "",
