@@ -5,8 +5,9 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../spinner/Loader";
 import { FaBars } from "react-icons/fa";
+import { useAuth } from "@clerk/clerk-react";
 
-const ChatList = () => {
+const ChatList =  () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["userChats"],
     queryFn: () =>
@@ -16,6 +17,8 @@ const ChatList = () => {
         })
         .then((res) => res.data),
   });
+
+  
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 

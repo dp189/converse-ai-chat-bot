@@ -17,15 +17,21 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
+const allowedOrigins = process.env.ORIGIN.split(',');
 
-const __dirname = path.resolve();
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
 
 app.use(
-  cors({
-    origin: [process.env.ORIGIN],
-   
-    credentials: true,
-  })
+  cors(corsOptions)
 );
 
 
